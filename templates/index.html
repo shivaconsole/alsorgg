@@ -1,0 +1,137 @@
+<!--
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="py-10 px-8 flex justify-between items-center border-b border-gray-200 container">
+    <div>
+        <h1 class="text-xl text-gray-800"> <strong> Customers Detail </strong> </h1>
+    </div>
+    <div>
+        <a class="text-blue-500 text-xl" href="#"> <button type="button"
+                class="inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-sm leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Generate
+                Report</button>
+        </a>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block body %}
+<div class="flex flex-col px-8 pb-8">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-6 inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="overflow-x-auto">
+                <table class="min-w-full border table-auto">
+                    <thead class="border-2 bg-blue-200 ">
+                        <tr>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left border-r">
+                                ID
+                            </th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left border-r border-r">
+                                Saltuation
+                            </th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left border-r">
+                                First Name
+                            </th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left border-r">
+                                Last Name
+                            </th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left border-r">
+                                Customer Pic
+                            </th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left border-r">
+                                E-mail
+                            </th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left border-r">
+                                Contact No.
+                            </th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left border-r">
+                                BelongsTo UnitID
+                            </th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left border-r">
+                                Building
+                            </th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left border-r">
+                                Floor
+                            </th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left border-r">
+                                Landmark
+                            </th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left border-r">
+                                Address
+                            </th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left border-r">
+                                Pincode
+                            </th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left border-r">
+                                Updated
+                            </th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left border-r">
+                                Created
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for value in items %}
+                        <tr class="border-b">
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                                {{value.id}}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                                {{value.salutation}}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                                {{value.first_name}}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                                {{value.last_name}}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                                <!-- <img src="{{value.cust_image}}" alt="Customer Image" style="height: 150px;"> -->
+                     
+                 <!--    
+                     
+                                {{value.cust_image}}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                                {{value.email_id}}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                                {{value.contactno}}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                                {{value.belongstounit_id}}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                                {{value.building}}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                                {{value.floor}}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                                {{value.landmark}}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                                {{value.address}}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                                {{value.pincode}}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                                {{value.updated}}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                                {{value.created}}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+-->

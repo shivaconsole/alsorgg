@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load tailwind_filters %}
+{% block content %}
+
+<div class="max-w-lg mx-auto">
+    <a class="hover:text-blue-500" href="/customers"> <b> <u>View Customers </u></b></a>
+    <hr/>
+    <div class="border-t border-gray-200 ">
+    <h1> <b>Add New Customer -</b>  </h1>
+    </div>
+
+   <form method="post" class="mt-5" >
+       {% csrf_token %}
+       {{ form|crispy }}
+       <input type="submit" value="Save">
+       <button type="submit" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+   </form>
+
+</div>
+{% endblock content %}

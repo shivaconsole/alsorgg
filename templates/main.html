@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  {% for customer in object_list %}
+      {{customer}}
+ <a href="{% url 'customers:customer-list-view' %}">
+        <button class="btn btn-primary"><u><b>pdf</b></u> </button>
+    </a>
+<br>
+<hr>
+  {% endfor %}
+    <a href="{% url 'customers:customer-list-view' %}">
+        <button class="btn btn-primary">pdf</button>
+    </a>
+<!--
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+<table>
+    <thead>
+    {% for field in customers %}
+         <th>{{ field.label }}</th>
+    {% endfor %}
+    </thead>
+    <tbody>
+    <tr>
+        {% for field in customers %}
+            <td> {{ field.value|default_if_none:'' }}</td>
+        {% endfor %}
+    </tr>
+    </tbody>
+</table>
+-->
+{% endblock content %}

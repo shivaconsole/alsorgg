@@ -1,0 +1,340 @@
+{% extends "base.html" %}
+
+{% block body %}
+<!--
+  <div class="container px-5 py-24 mx-auto flex flex-wrap">
+  -->
+<div class="py-12 px-8 flex justify-between items-center border-b border-gray-200 container">
+  <div>
+    <h1 class="text-4xl text-gray-800"> <strong> Quotations </strong> </h1>
+  </div>
+  <div>
+    <a class="text-blue-500" href="/quotations/create/">Create New Quotation--></a>
+  </div>
+</div>
+<style>
+  /* table {
+    font-size: large;
+
+  } */
+
+  td,
+  th {
+    border: 2px solid rgb(206, 196, 196);
+    /* text-align: left;
+    padding: 8px; */
+  }
+  
+  /* tr:nth-child(even) {
+    background-color: #dddddd;
+  } */
+  
+</style>
+
+<div class="flex flex-col px-8 pb-8">
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-x-auto">
+        <table class="min-w-full table-auto">
+          <thead class="border-b bg-blue-200 ">
+            <tr>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                ID
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Dated
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Saltuation
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Name
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Product
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                ProductDr No
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Reference
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Designer
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                ReferenceID
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Building
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Floor
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Landmark
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Address
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Remark
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Customer GST
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Country
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                State
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                City
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Pin Code
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for value in quotations %}
+            <tr class="border-b">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                {{value.id}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.Dated}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.salutation}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.name}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.product}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.productDrNo}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.reference}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.designer}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.customer_id}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.building}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.floor}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.landmark}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.address}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.remark}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.customerGST}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.country}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.state}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.city}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{value.pinCode}}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+
+<table>
+    <thead>
+        <th>#</th>
+        <th>product</th>
+        <th>Client details</th>
+        <th>Reference</th>
+        <th>version</th>
+        <th>Status</th>
+        <th>Versions</th>
+        <th>Action</th>
+        <th>Update Status</th>
+    </thead>
+    <tbody>
+        {% for client in clientes %}
+        <tr>
+            <td>{{ client.first_name|default_if_none:'' }}</td>
+            <td>{{ client.last_name|default_if_none:'' }}</td>
+            <td>{{ client.product|default_if_none:'' }}</td>
+            <td>{{ client.reference|default_if_none:'' }}</td>
+            <td>{{ client.landmark|default_if_none:'' }}</td>
+            <td>{{ client.address|default_if_none:'' }}</td>
+            <td>{{ client.remark|default_if_none:'' }}</td>
+            <td>{{ client.state|default_if_none:'' }}</td>
+            <td>{{ client.pinCode|default_if_none:'' }}</td>
+         </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<table>
+
+  <tr>
+      <th scope="col">#</th>
+      <th scope="col">Product</th>
+      <th scope="col">Client Details</th>
+      <th scope="col" >Reference</th>
+      <th scope="col" >Version</th>
+      <th scope="col" >Status</th>
+      <th scope="col" >Versions</th>
+      <th scope="col" >Action</th>
+      <th scope="col" >Update Status</th>
+  </tr>
+
+  <tr>
+
+    <td>1</td>
+    <td>Home and Kitchen</td>
+    <td>MR. Sample Lead</td>
+    <td>#Reference</td>
+    <td>none</td>
+    <td>Draft</td>
+      <td>Ver- Original</td>
+     <td></td>
+      <td></td>
+
+  </tr>
+
+  <tr>
+
+    <td>2</td>
+    <td>Home and Kitchen</td>
+    <td>MR. Sample Lead2</td>
+    <td>#Reference</td>
+    <td>none</td>
+    <td>Draft</td>
+      <td>Ver- Original</td>
+     <td></td>
+      <td></td>
+
+  </tr>
+
+  <tr>
+
+  <td>3</td>
+    <td>Home and Kitchen</td>
+    <td>MR. Sample Lead3</td>
+    <td>#Reference</td>
+    <td>none</td>
+    <td>Draft</td>
+      <td>Ver- Original</td>
+     <td></td>
+      <td></td>
+  </tr>
+
+</table>
+-->
+
+
+
+
+
+<!--
+<div>
+    <div>
+    </div>
+</div>
+<section class="text-gray-600 body-font">
+      <div class="flex flex-wrap -m-4">
+          <div class="flex flex-wrap -m-4">
+                <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+      <th scope="col" >Handle</th>
+      <th scope="col">Handle</th>
+      <th scope="col">Handle</th>
+
+        <th scope="col">Handle</th>
+    </tr>
+
+          </div>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{{ quotation.first_name }}</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    -->
+</section>
+
+{% for quotation in quotations %}
+<div class="p-4 lg:w-1/2 md:w-full ">
+  <div class="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col">
+    <div
+      class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
+      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        class="w-10 h-10" viewBox="0 0 24 24">
+        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+    </div>
+    <div class="flex-grow">
+      <h2 class="text-gray-900 text-lg title-font font-medium mb-3">
+        {{ quotation.first_name }} {{ quotation.last_name }}
+      </h2>
+      <p class="leading-relaxed text-base">
+        Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.
+      </p>
+      <a href="/quotations/{{quotation.pk}}/" {{ quotation }} class="mt-3 text-indigo-500 inline-flex items-center">
+        View this Quotation
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+{% endfor %}
+</div>
+{% endblock body %}

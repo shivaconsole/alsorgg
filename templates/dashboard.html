@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Alsorg | Dashboard</title>
+</head>
+
+<body>
+    <header class="text-gray-600 body-font bg-blue-200">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+                    viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <span class="ml-3 text-xl">alsorg</span>
+            </a>
+            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                <!-- copy and paste a tag here for more links -->
+            {% if request.user.is_authenticated %}
+            Hi, {{ request.user.username }} !!
+    <a href="{% url 'logout' %}" class="ml-3 inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+     Logout
+      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+        <path d="M5 12h14M12 5l7 7-7 7"></path>
+      </svg>
+    </a>
+    {% else %}
+    <a href="{% url 'login' %}" class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Login
+      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+        <path d="M5 12h14M12 5l7 7-7 7"></path>
+      </svg>
+    </a>
+    {% endif %}
+
+            </nav>
+        </div>
+    </header>
+
+    <section class="text-gray-600 body-font">
+
+        <div class="container px-5 py-20 pb-5 mx-auto">
+
+            <div class="bg-indigo-100 rounded-lg py-5 px-6 mb-3 text-base text-indigo-700 inline-flex items-center w-full"
+                role="alert">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-circle-right"
+                    class="w-4 h-4 mr-2 fill-current" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512">
+                    <path fill="currentColor"
+                        d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z">
+                    </path>
+                </svg>
+                <strong>Quick Links</strong>
+            </div>
+
+            {% load static %}
+            <div class="flex flex-wrap -m-4">
+                <div class="xl:w-1/4 md:w-1/2 p-4 ">
+                    <a href="{% url 'quotations:quotation-list' %}" alt="Quotations">
+                        <div class="bg-gray-100 p-6 rounded-lg hover:bg-blue-200 w-60">
+                            <img class="h-40 rounded w-full object-cover object-center mb-6" src="{% static 'images/quotations.png'%}"
+                                alt="QUOTATIONS">
+                                <h6 class="text-center font-bold">QUOTATIONS</h6>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="xl:w-1/4 md:w-1/2 p-4">
+                    <a href="{% url 'leads:lead-list' %}" alt="Leads">
+                        <div class="bg-gray-100 p-6 rounded-lg hover:bg-blue-200 w-60">
+                            <img class="h-40 rounded w-full object-cover object-center mb-6" src="{% static 'images/leads.jpg'%}"
+                                alt="OPEN ALL LEADS">
+                                <h6 class="text-center font-bold">OPEN ALL LEADS</h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="xl:w-1/4 md:w-1/2 p-4">
+                    <a href="{% url 'contacts:contact-list' %}" alt="Contact">
+                        <div class="bg-gray-100 p-6 rounded-lg hover:bg-blue-200 w-60">
+                            <img class="h-40 rounded w-full object-cover object-center mb-6" src="{% static 'images/contacts.jpg'%}"
+                                alt="CONTACTS-DIRECTORY">
+                                <h6 class="text-center font-bold">CONTACTS-DIRECTORY</h6>
+
+                        </div>
+                    </a>
+                </div>
+
+
+                <div class="xl:w-1/4 md:w-1/2 p-4">
+                    <a href="{% url 'customers:customer-list' %}" alt="Customer">
+                        <div class="bg-gray-100 p-6 rounded-lg hover:bg-blue-200 w-60">
+                            <img class="h-40 rounded w-55 object-cover object-center mb-6" src="{%static 'images/customers.jpg' %}"
+                                alt="Customers">
+                                <h6 class="text-center font-bold">Customers</h6>
+
+
+          
+                            <!-- <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat.</p> -->
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+
+    <div class="container px-5 pb-5 mx-auto">
+        <div class="flex flex-wrap md:text-left text-center -mb-10 -mx-4">
+            <div class="lg:w-1/6 md:w-1/2 w-full px-4">
+                <h1 class="title-font font-medium text-gray-900 tracking-widest text-xl mb-3"><b>MORE LINKS<b><b>-->><b></h1> 
+                <nav class="list-none mb-10">
+                    <li style="list-style-type:square">
+                        <a class="text-gray-600 hover:text-blue-700 font-bold text-lg" href="/quotations/create/"><u>Create New Quotations</a>
+                    </li>
+                    <li style="list-style-type:square">
+                        <a class="text-gray-600 hover:text-blue-700 font-bold text-lg" href="/leads/create/">Add New Lead</a>
+                    </li>
+                    <li style="list-style-type:square">
+                        <a class="text-gray-600 hover:text-blue-700 font-bold text-lg" href="/contacts/create/">Add New Contact</a>
+                    </li>
+                    <li style="list-style-type:square">
+                        <a class="text-gray-600 hover:text-blue-700 font-bold text-lg" href="#">Customers Reports</a>
+                    </li>
+                    <li style="list-style-type:square">
+                        <a class="text-gray-600 hover:text-blue-700 font-bold text-lg" href="#">Fifth Link</a>
+                    </li>
+                </nav>
+            </div>  
+
+        </div>
+    </div>
+    <footer class="text-gray-600 body-font">
+        <div class="px-5 py-8 mx-auto flex items-center sm:flex-row flex-col bg-blue-200">
+            <p class=" text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4"> <strong> ©
+                2020 Alsorg Interiors India Private Limited </strong>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+                <a class="ml-3 text-gray-500 hover:text-blue-700" href="#"><strong> About Us </strong> </a>
+
+                <a class="ml-3 text-gray-500 hover:text-blue-700" href="#"><strong> Our Team </strong></a>
+
+                <a class="ml-3 text-gray-500 hover:text-blue-700" href="#"><strong> Contact Us  </strong></a>
+            </span>
+        </div>
+    </footer>
+</body>
+
+</html>
