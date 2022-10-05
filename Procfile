@@ -1,1 +1,1 @@
-web: gunicorn alsorg.wsgi --log-file -
+web: waitress-serve --port=$PORT alsorg.wsgi:application
